@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Perfil de Usuario</title>
+
+    
+  <link rel="icon" href="dist/img/logodomestico.png">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+</head>
+<style>
+  body {
+    
+    font-family: Arial, sans-serif;
+    background-color: #d8cccc; /* Fondo de la página */
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+}
+
+.perfil-container {
+    width: 100%; /* Ocupar todo el ancho del body */
+    height: 100%; /* Ocupar toda la altura del body */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Mantiene los elementos distribuidos */
+    background-color: #e79a9a; /* Fondo blanco para el contenedor */
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+.perfil-header {
+    text-align: center;
+}
+
+.perfil-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.nombre-usuario {
+    margin: 10px 0;
+    font-size: 28px;
+}
+
+.perfil-info {
+    margin: 30px 0;
+}
+
+.perfil-info h2 {
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+
+
+.acciones {
+    display: flex; /* Usamos flexbox para alinear los botones en línea */
+    justify-content: space-between; /* Espacio entre los botones */
+    margin-top: auto; /* Mantiene los botones al final del contenedor */
+}
+
+.btn-editar, .btn-cerrar-sesion {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px; /* Aumenta el padding para botones más grandes */
+    border-radius: 5px;
+    cursor: pointer;
+    flex: 1; /* Hacemos que ambos botones ocupen el mismo espacio */
+    margin: 0 5px; /* Espacio horizontal entre botones */
+}
+
+.btn-editar:hover, .btn-cerrar-sesion:hover {
+    background-color: #0056b3;
+}
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .perfil-container {
+        padding: 50px;
+    }
+
+    .perfil-img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .nombre-usuario {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .perfil-info h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .perfil-img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .nombre-usuario {
+        font-size: 18px;
+    }
+
+    .perfil-info h2 {
+        font-size: 16px;
+    }
+}
+
+</style>
+<body>
+    <div class="perfil-container">
+        <div class="perfil-header">
+            <img src="Admin/doc/logodomestico.png" alt="Foto de Perfil" class="perfil-img">
+            <h1 class="nombre-usuario">Nombre del Usuario</h1>
+        </div>
+        <div class="perfil-info">
+            <h2>Información Personal</h2>
+            <p><strong>Email:</strong> usuario@example.com</p>
+            <p><strong>Teléfono:</strong> +123 456 7890</p>
+            <p><strong>Fecha de Nacimiento:</strong> 01/01/2000</p>
+        </div>
+        <div class="acciones">
+            <button class="btn-editar">Editar Perfil</button>
+            <button class="btn-cerrar-sesion">Cerrar Sesión</button>
+        </div>
+    </div>
+</body>
+</html>

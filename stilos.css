@@ -1,0 +1,63 @@
+h1 {
+    color: #4A90E2;
+    margin-bottom: 20px;
+}
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+label {
+    margin-top: 10px;
+    display: block;
+    font-weight: bold;
+}
+input, select, button {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+input:focus, select:focus {
+    border-color: #4A90E2;
+    outline: none;
+}
+button {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover {
+    background-color: #357ABD;
+}
+#taskList {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+}
+.task-item {
+    background-color: #e7f3fe;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.task-item h3 {
+    margin: 0;
+    color: #31708f;
+}
+.task-item p {
+    margin: 5px 0;
+}
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+}

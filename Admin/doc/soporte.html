@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soporte Técnico - Aplicación de Tareas Domésticas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .faq-item {
+            margin-bottom: 10px;
+        }
+        .faq-question {
+            background-color: #e9ecef;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 0 0 4px 4px;
+        }
+        #chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .chat-message {
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        .user-message {
+            background-color: #007bff;
+            color: #fff;
+            align-self: flex-end;
+        }
+        .bot-message {
+            background-color: #e9ecef;
+            color: #333;
+            align-self: flex-start;
+        }
+        #chat-form {
+            display: flex;
+        }
+        #chat-input {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Soporte Técnico</h1>
+
+        <div class="card">
+            <h2>Enviar Solicitud de Soporte</h2>
+            <form id="support-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" required></textarea>
+                </div>
+                <button type="submit">Enviar Solicitud</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-item">
+                <div class="faq-question">¿Cómo puedo restablecer mi contraseña?</div>
+                <div class="faq-answer">Para restablecer tu contraseña, ve a la página de inicio de sesión y haz clic en "¿Olvidaste tu contraseña?". Sigue las instrucciones enviadas a tu correo electrónico.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Cómo puedo agregar una nueva tarea?</div>
+                <div class="faq-answer">Para agregar una nueva tarea, ve a la página principal y haz clic en el botón "+" o "Agregar tarea". Llena los detalles requeridos y guarda la tarea.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">¿Puedo compartir tareas con otros usuarios?</div>
+                <div class="faq-answer">Sí, puedes compartir tareas con otros usuarios. En la página de detalles de la tarea, busca la opción "Compartir" y ingresa el correo electrónico del usuario con quien deseas compartir la tarea.</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Chat de Soporte</h2>
+            <div id="chat-messages"></div>
+            <form id="chat-form">
+                <input type="text" id="chat-input" placeholder="Escribe tu mensaje aquí..." required>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Formulario de soporte
+        document.getElementById('support-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const mensaje = document.getElementById('mensaje').value;
+            alert(`Solicitud enviada:\nNombre: ${nombre}\nEmail: ${email}\nMensaje: ${mensaje}`);
+            this.reset();
+        });
+
+        // Preguntas frecuentes
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+        // Chat de soporte
+        const chatMessages = document.getElementById('chat-messages');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+
+        chatForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const message = chatInput.value;
+            if (message.trim()) {
+                addMessage('user', message);
+                chatInput.value = '';
+                setTimeout(() => {
+                    addMessage('bot', 'Gracias por tu mensaje. Un agente de soporte te responderá pronto.');
+                }, 1000);
+            }
+        });
+
+        function addMessage(sender, text) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('chat-message', `${sender}-message`);
+            messageElement.textContent = text;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    </script>
+</body>
+</html>
